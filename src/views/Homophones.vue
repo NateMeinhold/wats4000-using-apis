@@ -1,11 +1,13 @@
 <template>
-  <div class="rhymesaurus">
-     <h2>Rhymesaurus: The Rhyming Thesaurus</h2>
-     <p>
-       <router-link to="/adjfornoun">Homophones For a Noun</router-link>
+  <div class="homophones">
+      <h2>Homophones for Noun</h2>
+      <p>
+       <router-link to="/">Rhymesaurus</router-link>
        </P>
     <form v-on:submit.prevent="findWords"><!-- TODO: Use a submit event handler to allow the findWords method to handle this form submission. -->
-      <p>Find rhymes for <input type="text" v-model="rhyme"> related to <input type="text" v-model="phrase"> <button type="submit">Search</button></p>
+      <p>Find homophones for a given noun 
+          <input type="text" v-model="noun"> 
+          <button type="submit">Search</button></p>
     </form>
     <!-- TODO: Add a v-if conditional to make this results list show only if there are results and if the length is greater than 0. -->
     <ul class="results" v-if="results && results.length > 0">
@@ -38,21 +40,20 @@
 import axios from 'axios'
 
 export default {
-  name: 'Rhymesaurus',
+  name: 'Homophones',
   data () {
     return {
-      results: null,
-      errors: [],
-      phrase: '',
-      rhyme: ''
+        results: null, 
+        errors: [],
+        noun: '',
+      
     }
   }, 
   methods: {
   findWords: function() {
     axios.get('https://api.datamuse.com/words', {
       params: {
-        ml: this.phrase,
-        rel_rhy: this.rhyme
+        rel_hom: this.noun
       }
     })
     .then(response => {
@@ -63,23 +64,13 @@ export default {
     });
   }
 }
-    // TODO: Create the findWords method.
-
-    // TODO: Complete the following inside of the findWords method.
-      // TODO: Create an axios.get statement that requests from https://api.datamuse.com/words
-      // TODO: Create the params object
-      // TODO: Set the `ml` parameter equal to `this.phrase`
-      // TODO: Set the `rel_ehy` parameter equal to `this.rhyme`
-      // TODO: Create a `then` clause
-      // TODO: Inside the `then` clause, set `this.results` equal to `response.data`
-      // TODO: Create a `catch` clause
-      // TODO: Inside the `catch` clause, push the new `error` onto the `this.errors` array
+   
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.rhymesaurus {
+.homophones {
   font-size: 1.4rem;
 }
 
