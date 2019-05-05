@@ -5,7 +5,7 @@
        <router-link to="/">Rhymesaurus</router-link>
        </P>
     <form v-on:submit.prevent="findWords"><!-- TODO: Use a submit event handler to allow the findWords method to handle this form submission. -->
-      <p>Find an adjective for a given noun 
+      <p>Find a homophone for a given noun 
           <input type="text" v-model="noun"> 
           <button type="submit">Search</button></p>
     </form>
