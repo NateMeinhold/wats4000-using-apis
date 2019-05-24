@@ -2,7 +2,7 @@
   <div class="rhymesaurus">
      <h2>Rhymesaurus: The Rhyming Thesaurus</h2>
      <p>
-       <router-link to="/adjfornoun">Homophones For a Noun</router-link>
+       <router-link to="/homophones">Homophones For a Noun</router-link>
        </P>
     <form v-on:submit.prevent="findWords">
       <p>Find rhymes for <input type="text" v-model="rhyme"> related to <input type="text" v-model="phrase"> <button type="submit">Search</button></p>

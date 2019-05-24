@@ -13,7 +13,7 @@
     <ul class="results" v-if="results && results.length > 0">
       <!-- TODO: Add a v-for loop to the LI tag to loop through the items in the results. -->
       <li class="item" v-for="(item, index) of results" :key="index">
-        <p><strong><!-- TODO: Output word -->{{item.word}}</strong></p>
+      <p><strong><!-- TODO: Output word -->{{item.word}}</strong></p>
         <p><!-- TODO: Output score -->{{item.score}}</p>
       </li>
     </ul>
@@ -57,7 +57,10 @@ export default {
       }
     })
     .then(response => {
-      this.results = response.data;
+      let data = response.data;
+      this.results = data.filter(item=>{
+        return item.hasOwnProperty('score')
+      })
     })
     .catch(error => {
       this.errors.push(error);

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Rhymesaurus from '@/views/Rhymesaurus'
 // TODO: Import new component
 import AdjForNoun from '@/views/AdjForNoun'
+import Homophones from '@/views/Homophones'
 
 Vue.use(Router)
 
@@ -21,6 +22,7 @@ export default new Router({
     {
       path: '/homophones',
       name: 'homophones',
+      component: Homophones
      //every time I add component: Homophones everything breaks
     }
    
