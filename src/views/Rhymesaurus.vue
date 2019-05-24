@@ -4,6 +4,7 @@
      <p>
        <router-link to="/homophones">Homophones For a Noun</router-link>
        </P>
+       <p><router-link to="/adjfornoun">Adjective For a Noun</router-link></p>
     <form v-on:submit.prevent="findWords">
       <p>Find rhymes for <input type="text" v-model="rhyme"> related to <input type="text" v-model="phrase"> <button type="submit">Search</button></p>
     </form>

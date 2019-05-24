@@ -1,11 +1,11 @@
 <template>
   <div class="adjfornoun">
-      <h2>Homophones for a Noun</h2> <!--Adjective for a noun-->
+      <h2>Adjectives for a Noun</h2> <!--Adjective for a noun-->
       <p>
        <router-link to="/">Rhymesaurus</router-link>
        </P>
     <form v-on:submit.prevent="findWords">
-      <p>Find a homophone for a given noun 
+      <p>Find an adjective for a given noun 
           <input type="text" v-model="noun"> 
           <button type="submit">Search</button></p>
     </form>
@@ -46,7 +46,7 @@ export default {
   findWords: function() {
     axios.get('https://api.datamuse.com/words', {
       params: {
-        rel_hom: this.noun //change rel_jjb to change to adjectives
+        rel_jjb: this.noun //change rel_jjb to change to adjectives rel_hom
       }
     })
     .then(response => {
