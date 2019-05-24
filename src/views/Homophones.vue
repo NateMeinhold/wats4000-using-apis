@@ -4,31 +4,31 @@
       <p>
        <router-link to="/">Rhymesaurus</router-link>
        </P>
-    <form v-on:submit.prevent="findWords"><!-- TODO: Use a submit event handler to allow the findWords method to handle this form submission. -->
+    <form v-on:submit.prevent="findWords"><!--  Use a submit event handler to allow the findWords method to handle this form submission. -->
       <p>Find homophones for a given noun 
           <input type="text" v-model="noun"> 
           <button type="submit">Search</button></p>
     </form>
-    <!-- TODO: Add a v-if conditional to make this results list show only if there are results and if the length is greater than 0. -->
+    <!--  Add a v-if conditional to make this results list show only if there are results and if the length is greater than 0. -->
     <ul class="results" v-if="results && results.length > 0">
-      <!-- TODO: Add a v-for loop to the LI tag to loop through the items in the results. -->
+      <!--  Add a v-for loop to the LI tag to loop through the items in the results. -->
       <li class="item" v-for="(item, index) of results" :key="index">
-      <p><strong><!-- TODO: Output word -->{{item.word}}</strong></p>
-        <p><!-- TODO: Output score -->{{item.score}}</p>
+      <p><strong><!--  Output word -->{{item.word}}</strong></p>
+        <p><!--  Output score -->{{item.score}}</p>
       </li>
     </ul>
 
-    <!-- TODO: Add a `v-else-if` conditional to make this message only show if there are no results returned (but we have actually attempted a request). -->
+    <!-- Add a `v-else-if` conditional to make this message only show if there are no results returned (but we have actually attempted a request). -->
     <div class="no-results" v-else-if="results && results.length === 0">
       <h2>No Words Found</h2>
       <p>Please adjust your search to find more words.</p>
     </div>
 
-    <!-- TODO: Add a v-if conditional to make this errors list show only if there are errors and if the length is greater than 0. -->
+    <!--  Add a v-if conditional to make this errors list show only if there are errors and if the length is greater than 0. -->
     <ul class="errors" v-if="errors && errors.length > 0">
-      <!-- TODO: Add a v-for loop to the LI tag to loop through the errors. -->
+      <!-- Add a v-for loop to the LI tag to loop through the errors. -->
       <li v-for="(error, index) of errors" :key="index">
-        <!-- TODO: Output each error. -->
+        <!-- Output each error. -->
         {{error.message}}
       </li>
     </ul>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-// TODO: Import axios properly here.
+// Import axios properly here.
 import axios from 'axios'
 
 export default {
